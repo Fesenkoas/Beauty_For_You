@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addItem, deleteItem, getAllItem, updateItem } from "../controllers/itemShop.js";
+import { addItem, removeItem, getAllItem, updateItem } from "../controllers/itemShop.js";
 
 
 
@@ -10,7 +10,7 @@ router.post('/add', addItem);
 
 //Delete Item Shop
 //http://localhost:3002/item/delete
-router.delete('/delete', deleteItem);
+router.delete('/delete', removeItem);
 
 //Get All Item Shop
 //http://localhost:3002/item/get

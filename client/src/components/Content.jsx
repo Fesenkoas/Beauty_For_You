@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
 import TextField from "@mui/material/TextField";
-import { addItem } from "../features/action/items";
+import { addItem } from "../redux/action/itemsSlice";
 
 export const Content = () => {
   const dispatch = useDispatch();
@@ -25,6 +25,13 @@ export const Content = () => {
       sale,
     };
     dispatch(addItem(newItem));
+    setTitle("");
+    setImage("");
+    setTextIl("");
+    setTextRu("");
+    setTextUs("");
+    setPrice("");
+    setSale("");
   };
   const handleClickCancel = () => {
     setTitle("");

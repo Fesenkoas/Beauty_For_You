@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const Sidebar = () => {
   return (
@@ -6,9 +7,9 @@ export const Sidebar = () => {
         <div className=' p-3 text-2xl text-cyan-50 bg-blue-900 text-center'>
            ADMIN PANEL
             </div>
-        <div className='w-full p-3'>Add Item</div>
-        <div className='w-full'>Items</div>
-        <div>Client</div>
+        <NavLink className='w-full p-3 text-cyan-50' to={"/add"}>Add Item</NavLink>
+        <NavLink className='w-full p-3  text-cyan-50'to={"/list_items"}>Items</NavLink>
+        <NavLink className='w-full p-3  text-cyan-50'to={"/client"}>Clients</NavLink>
       </div>
   )
 }

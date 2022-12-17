@@ -1,13 +1,7 @@
 
-.app {
-  font-family: "Open Sans", sans-serif;
-}
-
 .body {
   display: flex;
   height: 100%;
-  background-color: rgb(231, 231, 231);
-  
 }
 
 .sidebar {

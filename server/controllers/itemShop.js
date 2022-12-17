@@ -12,7 +12,7 @@ export const addItem = async (req, res) => {
       sale,
     });
     await newProduct.save();
-    res.json({ newProduct, message: "product create" });
+    res.json({message: "item create" });
   } catch (error) {
     console.log(error.message);
     res.json({ message: "Error in form" });
@@ -22,18 +22,19 @@ export const addItem = async (req, res) => {
 //Update Item
 export const updateItem = async (req, res) => {
   try {
-    const { imgUrl, title, sale, text, price, id } = req.body;
-    const item = await ItemShop.findById(id);
-    if (!item) return res.json({ message: "empty" });
+    console.log(req.body.id);
+    // const { imgUrl, title, sale, text, price, id } = req.body;
+    // const item = await ItemShop.findById(id);
+    // if (!item) return res.json({ message: "empty" });
 
-    item.imgUrl = imgUrl;
-    item.title = title;
-    item.sale = sale;
-    item.text = text;
-    item.price = price;
+    // item.imgUrl = imgUrl;
+    // item.title = title;
+    // item.sale = sale;
+    // item.text = text;
+    // item.price = price;
 
-    await item.save();
-    res.json(item);
+    // await item.save();
+    // res.json(item);
   } catch (error) {
     console.log(error.message);
     res.json({
@@ -42,12 +43,10 @@ export const updateItem = async (req, res) => {
   }
 };
 //Delete Item
-export const deleteItem = async (req, res) => {
+export const removeItem = async (req, res) => {
   try {
-    const { id } = req.body;
-    const item = await ItemShop.findByIdAndRemove(id);
+    const item = await ItemShop.findByIdAndDelete(req.body.id);
     if (!item) return res.json({ message: "empty" });
-
     res.json({ message: "Item Delete" });
   } catch (error) {
     console.log(error.message);
@@ -58,7 +57,6 @@ export const deleteItem = async (req, res) => {
 export const getAllItem = async (req, res) => {
   try {
     const item = await ItemShop.find();
-
     res.json(item);
   } catch (error) {
     console.log(error.message);
