@@ -3,13 +3,13 @@ import ItemShop from "../models/ItemShop.js";
 //Add item
 export const addItem = async (req, res) => {
   try {
-    const { imgUrl, title, sale, text, price } = req.body;
+    const { title, image, text, price, sale } = req.body;
     const newProduct = new ItemShop({
-      imgUrl,
       title,
-      sale,
+      image,
       text,
       price,
+      sale,
     });
     await newProduct.save();
     res.json({ newProduct, message: "product create" });
@@ -22,7 +22,7 @@ export const addItem = async (req, res) => {
 //Update Item
 export const updateItem = async (req, res) => {
   try {
-    const {imgUrl, title, sale, text, price, id} = req.body;
+    const { imgUrl, title, sale, text, price, id } = req.body;
     const item = await ItemShop.findById(id);
     if (!item) return res.json({ message: "empty" });
 
@@ -34,7 +34,6 @@ export const updateItem = async (req, res) => {
 
     await item.save();
     res.json(item);
-
   } catch (error) {
     console.log(error.message);
     res.json({

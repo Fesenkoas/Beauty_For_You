@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
 import TextField from "@mui/material/TextField";
+import { addItem } from "../features/action/items";
 
 export const Content = () => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [textRu, setTextRu] = useState("");
@@ -14,7 +15,16 @@ export const Content = () => {
   const [sale, setSale] = useState("");
 
   const handleClickAdd = () => {
-    console.log("result = ", title, image, textRu, textUs, textIl, price, sale);
+    const newItem = {
+      title:{
+        ru: title, en: title, il: title
+      },
+      image,
+      text: { ru: textRu, en: textUs, il: textIl },
+      price,
+      sale,
+    };
+    dispatch(addItem(newItem));
   };
   const handleClickCancel = () => {
     setTitle("");
