@@ -1,7 +1,7 @@
 import React from "react";
 import { BsTrash, BsPencilSquare } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { deleteItem } from "../redux/action/itemsSlice";
+import { deleteItem } from "../../redux/action/itemsSlice";
 
 export const Table = ({ item, id }) => {
   const dispatch = useDispatch();

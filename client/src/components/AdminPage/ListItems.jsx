@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getItem } from '../redux/action/itemsSlice'
+import { getItem } from '../../redux/action/itemsSlice'
 import { Table } from "./Table";
 
 export const ListItems = () => {

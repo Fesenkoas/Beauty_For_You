@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
 import TextField from "@mui/material/TextField";
-import { addItem } from "../redux/action/itemsSlice";
+import { addItem } from "../../redux/action/itemsSlice";
 
 export const Content = () => {
   const dispatch = useDispatch();
@@ -16,8 +16,10 @@ export const Content = () => {
 
   const handleClickAdd = () => {
     const newItem = {
-      title:{
-        ru: title, en: title, il: title
+      title: {
+        ru: title,
+        en: title,
+        il: title,
       },
       image,
       text: { ru: textRu, en: textUs, il: textIl },

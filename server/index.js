@@ -14,6 +14,8 @@ dotenv.config();
 const DB_URL = process.env.DB_URL;
 const DB_NAME = process.env.DB_NAME;
 const PORT = process.env.PORT || 5000;
+const PASSWORD = process.env.DB_PASSWORD;
+const USER = process.env.DB_USER;
 
 //Middleware
 app.use(cors());
@@ -32,5 +34,13 @@ async function start() {
     console.log(error);
   }
 }
+// async function start() {
+//   try {
+//     await mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@cluster0.0vzyauk.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
+//     app.listen(PORT, () => console.log(`Server started ${PORT}`));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
  start();
