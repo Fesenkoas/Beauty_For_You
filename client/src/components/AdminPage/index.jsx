@@ -9,7 +9,7 @@ export const AdminPage = () => {
   return (
     <LayoutAdmin>
       <Routes>
-        <Route path="/add" element={<Content />} />
+        <Route path="/" element={<Content />} />
         <Route path="/list_items" element={<ListItems />} />
         <Route path="/client" element={<Clients />} />
       </Routes>

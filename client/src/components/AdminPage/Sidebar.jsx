@@ -7,7 +7,7 @@ export const Sidebar = () => {
       <div className=" p-3 text-2xl text-cyan-50 bg-blue-900 text-center">
         ADMIN PANEL
       </div>
-      <NavLink className="w-full p-3 text-cyan-50" to={"/admin/add"}>
+      <NavLink className="w-full p-3 text-cyan-50" to={"/admin/"}>
         Add Item
       </NavLink>
       <NavLink className="w-full p-3  text-cyan-50" to={"/admin/list_items"}>

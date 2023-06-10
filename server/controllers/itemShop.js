@@ -3,16 +3,17 @@ import ItemShop from "../models/ItemShop.js";
 //Add item
 export const addItem = async (req, res) => {
   try {
-    const { title, image, text, price, sale } = req.body;
+    const { image, title, text, category, price, sale } = req.body;
     const newProduct = new ItemShop({
-      title,
       image,
+      title,
       text,
+      category,
       price,
       sale,
     });
     await newProduct.save();
-    res.json({message: "item create" });
+    res.json({ message: "item create" });
   } catch (error) {
     console.log(error.message);
     res.json({ message: "Error in form" });
@@ -22,19 +23,19 @@ export const addItem = async (req, res) => {
 //Update Item
 export const updateItem = async (req, res) => {
   try {
-    console.log(req.body.id);
-    // const { imgUrl, title, sale, text, price, id } = req.body;
-    // const item = await ItemShop.findById(id);
-    // if (!item) return res.json({ message: "empty" });
+    const { image, title, text, category, price, sale, id } = req.body;
+    const item = await ItemShop.findById(id);
+    if (!item) return res.json({ message: "empty" });
 
-    // item.imgUrl = imgUrl;
-    // item.title = title;
-    // item.sale = sale;
-    // item.text = text;
-    // item.price = price;
+    item.image = image;
+    item.title = title;
+    item.text = text;
+    item.category = category;
+    item.price = price;
+    item.sale = sale;
 
-    // await item.save();
-    // res.json(item);
+    await item.save();
+    res.json(item);
   } catch (error) {
     console.log(error.message);
     res.json({

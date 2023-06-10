@@ -7,6 +7,7 @@ import { addItem } from "../../redux/action/itemsSlice";
 export const Content = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
   const [textRu, setTextRu] = useState("");
   const [textUs, setTextUs] = useState("");
@@ -16,13 +17,10 @@ export const Content = () => {
 
   const handleClickAdd = () => {
     const newItem = {
-      title: {
-        ru: title,
-        en: title,
-        il: title,
-      },
+      title: { ru: title, en: title, il: title },
       image,
       text: { ru: textRu, en: textUs, il: textIl },
+      category,
       price,
       sale,
     };
@@ -32,6 +30,7 @@ export const Content = () => {
     setTextIl("");
     setTextRu("");
     setTextUs("");
+    setCategory("");
     setPrice("");
     setSale("");
   };
@@ -41,6 +40,7 @@ export const Content = () => {
     setTextIl("");
     setTextRu("");
     setTextUs("");
+    setCategory("");
     setPrice("");
     setSale("");
   };
@@ -90,6 +90,13 @@ export const Content = () => {
             rows={4}
             margin="normal"
             helperText="Please enter text in Hebret"
+          />
+          <TextField
+            label="Category"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+            margin="normal"
+            helperText="Please enter Category"
           />
           <TextField
             label="Price"
